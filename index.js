@@ -12,7 +12,7 @@ module.exports = function(content, file, conf){
 	delete conf.rootpath;
     less.render(content, conf, function(e, result){
 		if(e){
-			var msg = 'parser-less: ' + (e.message || e) + ' [' + file.subpath;
+			var msg = 'parser.less: ' + (e.message || e) + ' [' + file.subpath;
 			if(e.hasOwnProperty('line')){
 				msg += ':' + e.line;
 				if(e.hasOwnProperty('col')){
