@@ -5,9 +5,14 @@
     "author" : "FIS Team <fis@baidu.com>",
     "homepage" : "https://github.com/fouber/fis-parser-less",
     "keywords": [ "fis", "less" ],
+    "license": "MIT",
     "main" : "index.js",
     "engines" : {
         "node" : ">= 0.8.0"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/fouber/fis-parser-less"
     },
     "scripts" : {
         "test" : "mocha test/ut --recursive"
