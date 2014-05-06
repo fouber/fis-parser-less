@@ -12,12 +12,18 @@ var root = fis.project.getProjectPath();
 module.exports = function(content, file, conf){
     conf.paths = [ file.dirname, root ];
     conf.syncImport = true;
-    less.render(content, conf, function(e, result){
-		if(e){
-			throw e;
-		} else {
-			content = result;
-		}
-	});
+    var parser = new(less.Parser)(conf);
+    parser.parse(content, function (err, tree) {
+        if(err){
+            throw err;
+        } else {
+            if(parser.imports){
+                fis.util.map(parser.imports.files, function(path){
+                    file.cache.addDeps(path);
+                });
+            }
+            content = tree.toCSS(conf);
+        }
+    });
 	return content;
 };
