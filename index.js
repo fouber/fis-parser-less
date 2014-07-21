@@ -10,7 +10,7 @@ var less = require('less');
 var root = fis.project.getProjectPath();
 
 module.exports = function(content, file, conf){
-    conf.paths = [ file.dirname, root ];
+    conf.paths = [ file.dirname, root, ''];
     conf.syncImport = true;
     var parser = new(less.Parser)(conf);
     parser.parse(content, function (err, tree) {
