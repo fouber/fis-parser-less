@@ -12,6 +12,7 @@ var root = fis.project.getProjectPath();
 module.exports = function(content, file, conf){
     conf.paths = [ file.dirname, root ];
     conf.syncImport = true;
+    conf.relativeUrls = true;
     var parser = new(less.Parser)(conf);
     parser.parse(content, function (err, tree) {
         if(err){
